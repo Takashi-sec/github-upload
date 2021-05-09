@@ -1,0 +1,20 @@
+
+
+例4-1 ログオンユーザーがAdministratorまたはkuniiで、DC01コンピュータにログオンしたときのログを抽出
+
+*[EventData[Data[@Name=’SubjectUserName’]=’DC01$’] and 
+EventData[(Data[@Name=’TargetUserName’]=’Administrator’ or Data[@Name=’TargetUserName’]=’kunii’)]]
+
+〇：DC01コンピュータに: [@Name=’SubjectUserName’]=’DC01$’
+〇：Administratorまたはkuniiで: [@Name=’TargetUserName’]=’Administrator’ or Data[@Name=’TargetUserName’]=’kunii
+
+例3：イベントIDが4624で、ログオンタイプが2のPC01コンピュータからログオンしたログを抽出
+
+*[System[(EventID=4624)] and 
+EventData[Data[@Name=’WorkstationName’]=’PC01′] and EventData[Data[@Name=’LogonType’]=’2′]]
+
+〇：PC01コンピュータからログオン: [@Name=’WorkstationName’]=’PC01′]
+
+
+例2：イベントIDが4624で、ログオンタイプが2のAdministratorによるログオンのログを抽出
+〇：EventData[Data[@Name=’TargetUserName’]=’Administrator’] and EventData[Data[@Name=’LogonType’]=’2′]]
